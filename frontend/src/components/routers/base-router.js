@@ -8,7 +8,7 @@ const instance = axios.create({
 
   const UsersAPI  = {
     getUser (userId) {
-        return instance.get('/users/' + userId)
+        return instance.get('/api/user/' + userId)
             .then(res =>  res.data);
     },
     createNewUser (login, password) {
