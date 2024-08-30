@@ -7,11 +7,11 @@ const instance = axios.create({
   });
 
   const UsersAPI  = {
-    getUser: (userId) {
-        return instance.get('/users/' + userId)
-            .then(res => return res.data);
+    getUser (userId) {
+        return instance.get('/api/user/' + userId)
+            .then(res =>  res.data);
     },
-    createNewUser: (login, password) {
+    createNewUser (login, password) {
         instance.post('/users', {
             login,
             password,
