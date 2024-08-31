@@ -1,7 +1,5 @@
 const express = require("express");
 const Router = express.Router();
-const mongoose = require("mongoose");
-const FinanceInfo = require("../models/FinanceInfo");
 const FinanceController = require('../controllers/FinanceController');
 
 //gets all the finance information related to a user
