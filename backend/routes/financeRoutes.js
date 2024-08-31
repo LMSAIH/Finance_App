@@ -1,35 +1,20 @@
 const express = require("express");
 const Router = express.Router();
+const mongoose = require("mongoose");
 const FinanceInfo = require("../models/FinanceInfo");
+const FinanceController = require('../controllers/FinanceController');
 
 //gets all the finance information related to a user
-Router.get("/", async (req, res) => {
+Router.get("/", FinanceController.getAll);
 
-  const data = await FinanceInfo.find({}).sort({ createdAt: -1 });
-  res.status(200).json(data);
+//get an specific month finance info
+Router.get("/:id", FinanceController.getOne);
 
-});
+Router.delete("/:id", FinanceController.deleteOne);
 
-//Post the finance information 
-Router.post("/", async (req, res) => {
+//Post the finance information for an specific month
+Router.post("/", FinanceController.postOne);
 
-    try{
-
-        const data = {
-            month: req.month,
-            user_id: req.user_id,
-            income: req.income,
-            outcome: req.outcome,
-        }
-
-        const createdObject =  await FinanceInfo.create(data);
-
-        res.status(200).json(createdObject);
-
-    } catch(err){
-   
-        res.status(400).json({error: err.message});
-    }
-});
+Router.patch("/:id", FinanceController.updateOne);
 
 module.exports = Router;
