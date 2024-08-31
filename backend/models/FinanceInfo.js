@@ -23,7 +23,7 @@ const FinanceInfoSchema = new Schema ({
             required: true,
         },
         amount: {
-            type:String,
+            type:Number,
             required: true,
         }
     }],
