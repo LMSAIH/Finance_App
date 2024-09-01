@@ -10,7 +10,7 @@
 .Navbar {
     grid-area: n;
     background-color: yellow;
-    color: white
+    color: black
 }
 
 .Content {
