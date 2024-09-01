@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const FinanceInfoSchema = new Schema ({
 
     year:{
-        type:String,
+        type:Number,
         required:true,
     },
     month: {
