@@ -1,0 +1,20 @@
+.Wrapper {
+    display: grid;
+    grid-template-areas:
+    'n c';
+    grid-template-columns: 1fr 10fr;
+    grid-gap: 10px;
+}
+
+
+.Navbar {
+    grid-area: n;
+    background-color: yellow;
+    color: white
+}
+
+.Content {
+    grid-area: c;
+    background-color: black;
+    color: white;
+}

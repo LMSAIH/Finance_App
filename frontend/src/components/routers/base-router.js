@@ -1,12 +1,14 @@
 import axios from 'axios';
 
+
+
+
 const instance = axios.create({
-    baseURL: 'localhost:3000',
-    timeout: 1000,
-    headers: {'X-Custom-Header': 'foobar'}
+    withCredentials: false,
+    baseURL: 'http://localhost:4000',
   });
 
-  const UsersAPI  = {
+  export const FinancesAPI  = {
     getUser (userId) {
         return instance.get('/api/user/' + userId)
             .then(res =>  res.data);
@@ -16,5 +18,10 @@ const instance = axios.create({
             login,
             password,
         }).then(res => res.body)
+    },
+    getFinances(id) {
+        instance.get('/api/finance/' + id).then(res => {
+            console.log(res.data);
+            return res.data})
     }
-  }
+  } 
