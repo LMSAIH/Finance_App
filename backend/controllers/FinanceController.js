@@ -48,12 +48,17 @@ const postOne = async (req, res) => {
   try {
     const emptyFields = [];
     const data = {
+      year: req.body.year,
       month: req.body.month,
       user_id: req.body.user_id,
       income: req.body.income,
       outcome: req.body.outcome,
     };
 
+    if(!data.year){
+      emptyFields.push("year");
+    }
+    
     if (!data.month) {
       emptyFields.push("month");
     }
