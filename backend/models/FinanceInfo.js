@@ -5,6 +5,10 @@ const Schema = mongoose.Schema;
 //creates the finance schema
 const FinanceInfoSchema = new Schema ({
 
+    year:{
+        type:String,
+        required:true,
+    },
     month: {
         type:String,
         required:true,
