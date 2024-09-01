@@ -4,6 +4,7 @@ const app = express();
 const mongoose = require('mongoose');
 const FinanceRoutes = require('./routes/financeRoutes');
 const UserRoutes = require('./routes/userRoutes');
+const cors = require('cors');
 
 //Use the express json to parse the json
 app.use(express.json());
@@ -15,6 +16,7 @@ app.use((req,res,next) => {
 });
 
 //Use the routes
+app.use(cors());
 app.use("/api/finance", FinanceRoutes);
 app.use("/api/user", UserRoutes);
 
