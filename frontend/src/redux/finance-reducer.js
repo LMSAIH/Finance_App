@@ -1,7 +1,7 @@
 import { FinancesAPI } from "../components/routers/base-router";
 
 const InitialState = {
-    financesData: {
+    financesData: [{
         _id: "66d3860e3f28a618e2220f3d",
         month: "January",
         user_id: "12321312",
@@ -16,7 +16,7 @@ const InitialState = {
         createdAt: "2024-08-31T21:07:26.815Z",
         updatedAt: "2024-08-31T21:15:12.666Z",
         
-    },
+    }],
     goals: [{
         _id: "66d3860e3f28a618e2220f3d",
         month: "January",
@@ -45,7 +45,7 @@ export let financeReducer = (state = InitialState, action) => {
     }
 }
 
-const getFinancesAC = (financesData) => {
+const getFinancesAC = (action) => {
     return {
         type: "SET_FINANCES",
         financesData: action.financesData,

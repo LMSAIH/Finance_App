@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import el from './Home.module.css'
-import { getFinancesData } from './HomeSelector';
+import { getFinancesData } from '../../redux/HomeSelector';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFinancesTC } from '../../redux/finance-reducer';
 
@@ -17,10 +17,12 @@ export const Home = () => {
     }
 
     // getFinances(); 
+    
 
     const [isEdditting1, setIsEdditing1] = useState(false);
     const [isEdditting2, setIsEdditing2] = useState(false);
-    const [month, setMonth] = useState("");
+    const [month, setMonth] = useState("January");
+    const [finData, setFinData] = useState(financesData.find(e => e.month == month)); 
 
     const createNewIncome = () => {
         setIsEdditing1(true);
@@ -42,10 +44,6 @@ export const Home = () => {
         await getFinances();
     }
 
-    const sumbitMonth = {
-
-    }
-
     return (
         <div>
             <div className={el.User}>
@@ -58,30 +56,28 @@ export const Home = () => {
             <hr></hr>
             <div>
                 <div>
-                    Income: {financesData.income}
+                    <SelectMonthForm setMonth ={setMonth} />
                 </div>
                 <div>
-                    Month: {financesData.month}
+                    Income: {finData.income}
                 </div>
                 <div>
-                    <SelectMonthForm onSubmit = {sumbitMonth}/>
+                    Month: {finData.month}
                 </div>
+
                 <div>
                     <div>
-                        {financesData.map(e => {
-                            return (
-                                
-                                <div></div>
-                            )
-                        })}
+                        {finData.outcome.map(e => <div>
+                            {e.concept}: {e.amount}
+                        </div>)}
                     </div>
-                    Outcome: {financesData.outcome.map(e => {
+                    {/* Outcome: {financesData[0].outcome.map(e => {
                         return (<div>
                             <div>{e.concept}: {e.amount}</div>
                         </div>
 
                         )
-                    })}
+                    })} */}
                 </div>
                 Forms for creating new incomes or wastings
                 <div>
@@ -119,7 +115,7 @@ const FinanceForm = (props) => {
         <div>
             <Formik
                 enableReinitialize
-                initialValues={{ reason: "", amount: 0 }}
+                initialValues={{ reason: "", amount: 0, month: "January" }}
                 onSubmit={submit}>
 
 
@@ -154,13 +150,13 @@ const FinanceForm = (props) => {
 
 const SelectMonthForm = (props) => {
     let submit = (values) => {
-
+        props.setMonth(values.month);
     }
     return (
         <div>
             <Formik
                 enableReinitialize
-                initialValues={{ reason: "", amount: 0 }}
+                initialValues={{ month: "January"}}
                 onSubmit={submit}>
 
                 <Form>
