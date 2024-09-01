@@ -9,19 +9,30 @@ const instance = axios.create({
   });
 
   export const FinancesAPI  = {
-    getUser (userId) {
-        return instance.get('/api/user/' + userId)
-            .then(res =>  res.data);
-    },
-    createNewUser (login, password) {
-        instance.post('/users', {
-            login,
-            password,
-        }).then(res => res.body)
+    
+    loginNewUser (login, password, rememberMe) {
+        return instance.post('/api/users', {
+            login: login,
+            password: password,
+            rememberMe: rememberMe
+        }).then(res => res.body);
     },
     getFinances(id) {
-        instance.get('/api/finance/' + id).then(res => {
-            console.log(res.data);
-            return res.data})
+        return instance.get("/api/finance/" + id).then(res => res.data)
+    },
+    createNewFinance(year, month, userId, income, concept, amount) {
+        return instance.post("/api/finance", {
+            year: year,
+            month: month,
+            user_id: userId,
+            income: income,
+            outcome: [{
+                concept: concept,
+                amount: amount
+            }]
+        }).then(res => res.data);
+    },
+    deleteFinance(id) {
+        return instance.delete('/api/finances' + id).then(res => res.data);
     }
   } 
