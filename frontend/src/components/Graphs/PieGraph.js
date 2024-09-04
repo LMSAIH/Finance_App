@@ -54,6 +54,7 @@ const PieChart = ({ income, outcome }) => {
   return (
     <div className="PieChart">
       <h3>The income for this month: {income}</h3>
+      {/* there was a delete button, but i decided to seperate functionality in wrapper component, if you have any concerns text me */}
       <Pie options={options} data={pieChartData} />
     </div>
   );

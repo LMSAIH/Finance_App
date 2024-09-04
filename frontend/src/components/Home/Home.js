@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Formik, Form, Field } from 'formik';
 import el from './Home.module.css'
 import { getFinancesData } from '../../redux/HomeSelector';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFinancesTC, createNewFinanceTC } from '../../redux/finance-reducer';
 import { deleteFinanceTC } from '../../redux/finance-reducer';
+import { FinanceInfo } from './FinanceInfo';
+import { CreateNewFinanceForm } from '../../forms/CreateNewFinanceForm';
+import { SelectIFilterForm } from '../../forms/SelectFilterForm';
 
+//Not finished components:
+// import { AmountOutcomesEdditingForm } from './AmountOutcomesEdditingForm';
+// import { OutcomesForm } from './OutcomesForm';
 
 export const Home = () => {
 
@@ -14,41 +19,55 @@ export const Home = () => {
     const [finData, setFinData] = useState(null);
 
     const dispatch = useDispatch();
-    
+
     const userId = useSelector(state => state.auth.userId)
 
-    const getFinances = (id) => {
-        dispatch(getFinancesTC(id))
+    const getFinances = (userId) => {
+        dispatch(getFinancesTC(userId))
     }
 
     const createNewFinance = (year, month, userId, income, concept, amount) => {
         dispatch(createNewFinanceTC(year, month, userId, income, concept, amount))
     }
 
-    const deleteFinance = (id) => {
-        dispatch(deleteFinanceTC(id));
+    const deleteFinance = (id, userId) => {
+        dispatch(deleteFinanceTC(id, userId));
     }
 
     let financesData = useSelector(getFinancesData);
 
     useEffect(() => {
-        getFinances('66d3f72ba56830513652570f');
+        debugger
+        getFinances(userId);
 
     }, [dispatch]);
 
     useEffect(() => {
         debugger
+        console.log(financesData);
+        let newFinanceData;
         if (financesData.length > 0) {
-            setFinData(financesData.find(e => {
+            newFinanceData = (financesData.filter(e => {
                 console.log(e.month)
                 if (e.month === filter.month && e.year === filter.year)
                     return true
             }))
         }
+        console.log("here2: ");
+        setFinData(newFinanceData);
+        console.log(finData);
+        if (newFinanceData) {
+            if (newFinanceData.length == 0) {
+                setFinData(null);
+            }
+        }
+
     }, [financesData, filter]);
 
 
-   
+
+
+
 
     const createNewIncome = () => {
         setIsEdditing1(true);
@@ -71,40 +90,21 @@ export const Home = () => {
             <hr></hr>
             <div>
                 <div>
-                    <SelectIFilterForm setFilter={setFilter}  />
+                    <SelectIFilterForm setFilter={setFilter} />
                 </div>
-                {finData ? (
-                    <>
-                        <div>Year: {finData.year}</div>
-                        <div>Month: {finData.month}</div>
-                        <div>Income: {finData.income}</div>
-                        <div>
-                            Outcome: {finData.outcome.map(e => {
-                                return (<div>
-                                    <div>{e.concept}: {e.amount}</div>
-                                </div>
-
-                                )
-                            })}
-                        </div>
-                    </>
-                ) : (
+                {(finData) ? (finData.map(e => <FinanceInfo financeData={e} deleteFinance={deleteFinance} />)) : (
                     <div>Loading...</div>
                 )}
                 <div>
                     <div>
                         Deleting finance
                     </div>
-                    <div>
-                        <DeleteForm deleteFinance={deleteFinance} financesData={financesData}/>
-                    </div>
-
                 </div>
                 Forms for creating new incomes or wastings
                 <div>
                     <div>
                         {isEdditting1 ? <div>
-                            <FinanceForm createNewFinance={createNewFinance} userId={userId}/>
+                            <CreateNewFinanceForm createNewFinance={createNewFinance} userId={userId} />
                             <button onClick={disableNewIncome}>Stop creating an new finance object for a month and a year</button>
                         </div> : <button onClick={createNewIncome}>Create finance object for a month and a year</button>}
                     </div>
@@ -119,118 +119,11 @@ export const Home = () => {
 
 
 
-const FinanceForm = (props) => {
-
-    let submit = (values) => {
-        props.createNewFinance(values.year, values.month, props.userId ,values.income, values.concept, values.amount);
-    }
-
-    return (
-        <div>
-            <Formik
-                enableReinitialize
-                initialValues={{ concept: "", amount: 0, month: "January", year: 2024 }}
-                onSubmit={submit}>
-                <Form>
-                    <Field type="number" name="year" />
-                    <Field as="select" name="month">
-                        <option value={"january"}>january</option>
-                        <option value={"February"}>February</option>
-                        <option value={"March"}>March</option>
-                        <option value={"April"}>April</option>
-                        <option value={"May"}>May</option>
-                        <option value={"June"}>June</option>
-                        <option value={"July"}>July</option>
-                        <option value={"August"}>August</option>
-                        <option value={"September"}>September</option>
-                        <option value={"October"}>October</option>
-                        <option value={"November"}>November</option>
-                        <option value={"December"}>December</option>
-                    </Field>
-                    <Field type="number" name="income" />
-                    <Field type="text" name="concept" />
-                    <Field type="number" name="amount" />
-                    <button type="submit">
-                        Submit
-                    </button>
-                </Form>
-            </Formik>
-        </div>
-    );
-};
-
-
-const SelectIFilterForm = (props) => {
-    let submit = (values) => {
-        props.setFilter({ month: values.month, year: values.year });
-    }
-    return (
-        <div>
-            <Formik
-                enableReinitialize
-                initialValues={{ month: "January" }}
-                onSubmit={submit}>
-
-                <Form>
-                    <Field as="select" name="month">
-                        <option value={"January"}>January</option>
-                        <option value={"February"}>February</option>
-                        <option value={"March"}>March</option>
-                        <option value={"April"}>April</option>
-                        <option value={"May"}>May</option>
-                        <option value={"June"}>June</option>
-                        <option value={"July"}>July</option>
-                        <option value={"August"}>August</option>
-                        <option value={"September"}>September</option>
-                        <option value={"October"}>October</option>
-                        <option value={"November"}>November</option>
-                        <option value={"December"}>December</option>
-                    </Field>
-                    <Field type="number" name="year" />
-                    <button type="submit">
-                        Submit
-                    </button>
-                </Form>
-            </Formik>
-        </div>
-    );
-};
 
 
 
-const DeleteForm = (props) => {
-    let submit = (values) => {
-        const foundFinance = props.financesData.find(e => e.month == values.month && e.year == values.year);
-        props.deleteFinance(foundFinance._id);
-    }
-    return (
-        <div>
-            <Formik
-                enableReinitialize
-                initialValues={{ month: "January", year: 2024 }}
-                onSubmit={submit}>
 
-                <Form>
-                    <Field type="number" name="year" />
-                    <Field as="select" name="month">
-                        <option value={"january"}>january</option>
-                        <option value={"February"}>February</option>
-                        <option value={"March"}>March</option>
-                        <option value={"April"}>April</option>
-                        <option value={"May"}>May</option>
-                        <option value={"June"}>June</option>
-                        <option value={"July"}>July</option>
-                        <option value={"August"}>August</option>
-                        <option value={"September"}>September</option>
-                        <option value={"October"}>October</option>
-                        <option value={"November"}>November</option>
-                        <option value={"December"}>December</option>
-                    </Field>
-                    <button type="submit">
-                        Submit
-                    </button>
-                </Form>
-            </Formik>
-        </div>
-    );
-};
+
+
+
+

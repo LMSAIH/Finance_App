@@ -17,8 +17,8 @@ const instance = axios.create({
             rememberMe: rememberMe
         }).then(res => res.body);
     },
-    getFinances(id) {
-        return instance.get("/api/finance/" + id).then(res => res.data)
+    getFinances() {
+        return instance.get("/api/finance/").then(res => res.data);
     },
     createNewFinance(year, month, userId, income, concept, amount) {
         return instance.post("/api/finance", {
@@ -33,6 +33,6 @@ const instance = axios.create({
         }).then(res => res.data);
     },
     deleteFinance(id) {
-        return instance.delete('/api/finances' + id).then(res => res.data);
+        return instance.delete("/api/finance/" + id).then(res => res.data);
     }
   } 
