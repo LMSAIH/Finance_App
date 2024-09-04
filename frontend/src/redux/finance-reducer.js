@@ -36,7 +36,7 @@ export let financeReducer = (state = InitialState, action) => {
         case GET_FINANCES: {
             return {
                 ...state,
-                financesData: [action.financesData]
+                financesData: [...action.financesData]
             }
         };
         case CREATE_FINANCE: {
@@ -67,10 +67,14 @@ const createIncomeAC = (financesData) => {
     }
 }
 
-export const getFinancesTC = (id) => async (dispatch) => {
-      const response = await FinancesAPI.getFinances(id);
+export const getFinancesTC = (userId) => async (dispatch) => {
+      const response = await FinancesAPI.getFinances();
+      
       console.log(response);
-      dispatch(getFinancesAC(response))
+      const usersData = response.filter(e => e.user_id == userId);
+      
+      console.log(usersData);
+      dispatch(getFinancesAC(usersData))
 } 
 
 export const createNewFinanceTC = (year, month, userId, income, concept, amount) => async (dispatch) => {
@@ -80,6 +84,11 @@ export const createNewFinanceTC = (year, month, userId, income, concept, amount)
     dispatch(createIncomeAC(response));
 }
 
-export const deleteFinanceTC = (id) => async () => {
+export const deleteFinanceTC = (id, userId) => async (dispatch) => {
     const response = await FinancesAPI.deleteFinance(id)
+    if (response.message == "data succesfully deleted") {
+        dispatch(getFinancesTC(userId))
+    } else {
+        console.log("Something went wrong")
+    }
 }
