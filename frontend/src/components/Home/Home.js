@@ -7,6 +7,7 @@ import { deleteFinanceTC } from '../../redux/finance-reducer';
 import { FinanceInfo } from './FinanceInfo';
 import { CreateNewFinanceForm } from '../../forms/CreateNewFinanceForm';
 import { SelectIFilterForm } from '../../forms/SelectFilterForm';
+import { useAuthContext } from '../../hooks/useAuthContext';
 
 //Not finished components:
 // import { AmountOutcomesEdditingForm } from './AmountOutcomesEdditingForm';
@@ -17,10 +18,11 @@ export const Home = () => {
     const [isEdditting1, setIsEdditing1] = useState(false);
     const [filter, setFilter] = useState({ month: "january", year: 2024 });
     const [finData, setFinData] = useState(null);
-
     const dispatch = useDispatch();
 
     const userId = useSelector(state => state.auth.userId)
+
+    const {user} = useAuthContext();
 
     const getFinances = (userId) => {
         dispatch(getFinancesTC(userId))
@@ -66,9 +68,6 @@ export const Home = () => {
 
 
 
-
-
-
     const createNewIncome = () => {
         setIsEdditing1(true);
     }
@@ -82,7 +81,7 @@ export const Home = () => {
         <div>
             <div className={el.User}>
                 <img src="https://i.pinimg.com/736x/2d/6a/c8/2d6ac85d121247db3822c81f42a4a27d--avatar-naruto-series.jpg" alt="Photo here" />
-                userName
+                {user ? user.email : "not logged in"}
             </div>
             <div>
                 Graphs shit
