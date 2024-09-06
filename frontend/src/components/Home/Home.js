@@ -13,6 +13,7 @@ import { useAuthContext } from '../../hooks/useAuthContext';
 // import { AmountOutcomesEdditingForm } from './AmountOutcomesEdditingForm';
 // import { OutcomesForm } from './OutcomesForm';
 
+
 export const Home = () => {
 
     const [isEdditting1, setIsEdditing1] = useState(false);
@@ -24,28 +25,31 @@ export const Home = () => {
 
     const {user} = useAuthContext();
 
-    const getFinances = (userId) => {
-        dispatch(getFinancesTC(userId))
+    const token = user.token;
+
+    const getFinances = (userId, token) => {
+    
+        dispatch(getFinancesTC(userId, token))
     }
 
-    const createNewFinance = (year, month, userId, income, concept, amount) => {
-        dispatch(createNewFinanceTC(year, month, userId, income, concept, amount))
+    const createNewFinance = (year, month, userId, income, concept, amount, token) => {
+        dispatch(createNewFinanceTC(year, month, userId, income, concept, amount, token))
     }
 
-    const deleteFinance = (id, userId) => {
-        dispatch(deleteFinanceTC(id, userId));
+    const deleteFinance = (id, userId, token) => {
+        dispatch(deleteFinanceTC(id, userId, token));
     }
 
     let financesData = useSelector(getFinancesData);
 
     useEffect(() => {
         debugger
-        getFinances(userId);
-
+        console.log(token);
+        getFinances(userId, token);
     }, [dispatch]);
 
     useEffect(() => {
-        debugger
+
         console.log(financesData);
         let newFinanceData;
         if (financesData.length > 0) {
@@ -91,7 +95,7 @@ export const Home = () => {
                 <div>
                     <SelectIFilterForm setFilter={setFilter} />
                 </div>
-                {(finData) ? (finData.map(e => <FinanceInfo financeData={e} deleteFinance={deleteFinance} />)) : (
+                {(finData) ? (finData.map(e => <FinanceInfo financeData={e} deleteFinance={deleteFinance} token={token} />)) : (
                     <div>Loading...</div>
                 )}
                 <div>
@@ -103,7 +107,7 @@ export const Home = () => {
                 <div>
                     <div>
                         {isEdditting1 ? <div>
-                            <CreateNewFinanceForm createNewFinance={createNewFinance} userId={userId} />
+                            <CreateNewFinanceForm createNewFinance={createNewFinance} userId={userId} token={token} />
                             <button onClick={disableNewIncome}>Stop creating an new finance object for a month and a year</button>
                         </div> : <button onClick={createNewIncome}>Create finance object for a month and a year</button>}
                     </div>
