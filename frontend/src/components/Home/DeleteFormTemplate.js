@@ -6,7 +6,7 @@ export const DeleteForm = (props) => {
         const foundFinance = props.financesData.find(e => e.month == values.month && e.year == values.year);
         console.log("Watch here");
         console.log(foundFinance);
-        props.deleteFinance(foundFinance._id, props.userId);
+        props.deleteFinance(foundFinance._id, props.userId, props.token);
     }
     return (
         <div>
