@@ -6,20 +6,10 @@ export const CreateNewFinanceForm = (props) => {
 
     //component is not finished, try to do not pay much attention about this
 
-    const [amountEdditing, setAmountEdditing] = useState(0);
-
-    const setOutcomesAmount = (amount) => {
-        setAmountEdditing(amount)
-    }
-
-    let outcomes = [];
-
-    const setOutcomes = (newOutComes) => {
-        outcomes.push(newOutComes)
-    }
-
     let submit = (values) => {
-        props.createNewFinance(values.year, values.month, props.userId, values.income, values.concept, values.amount);
+        const token = props.token;
+        console.log(props.token);
+        props.createNewFinance(values.year, values.month, props.userId, values.income, values.concept, values.amount, token);
     }
 
     // const createOutcomesForm = () => {
