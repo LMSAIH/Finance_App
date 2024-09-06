@@ -40,6 +40,7 @@ export let financeReducer = (state = InitialState, action) => {
             }
         };
         case CREATE_FINANCE: {
+            console.log(action);
             return {
                 ...state,
                 financesData: [...state.financesData, action.financesData]
@@ -67,8 +68,8 @@ const createIncomeAC = (financesData) => {
     }
 }
 
-export const getFinancesTC = (userId) => async (dispatch) => {
-      const response = await FinancesAPI.getFinances();
+export const getFinancesTC = (userId, token) => async (dispatch) => {
+      const response = await FinancesAPI.getFinances(token);
       
       console.log(response);
       const usersData = response.filter(e => e.user_id == userId);
@@ -77,17 +78,20 @@ export const getFinancesTC = (userId) => async (dispatch) => {
       dispatch(getFinancesAC(usersData))
 } 
 
-export const createNewFinanceTC = (year, month, userId, income, concept, amount) => async (dispatch) => {
+export const createNewFinanceTC = (year, month, userId, income, concept, amount, token) => async (dispatch) => {
     debugger
-    const response = await FinancesAPI.createNewFinance(year, month, userId, income, concept, amount);
+    console.log(`Yur boy is here ${token}`);
+    const response = await FinancesAPI.createNewFinance(year, month, userId, income, concept, amount, token);
+    
+    console.log(`this ${response}`);
     console.log(response);
     dispatch(createIncomeAC(response));
 }
 
-export const deleteFinanceTC = (id, userId) => async (dispatch) => {
-    const response = await FinancesAPI.deleteFinance(id)
+export const deleteFinanceTC = (id, userId, token) => async (dispatch) => {
+    const response = await FinancesAPI.deleteFinance(id, token)
     if (response.message == "data succesfully deleted") {
-        dispatch(getFinancesTC(userId))
+        dispatch(getFinancesTC(userId, token))
     } else {
         console.log("Something went wrong")
     }
