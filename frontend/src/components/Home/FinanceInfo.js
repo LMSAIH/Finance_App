@@ -6,7 +6,7 @@ export const FinanceInfo = (props) => {
     const deleteFinance = () => {
         debugger
         console.log("here6666666666666: ");
-        props.deleteFinance(props.financeData._id, props.financeData.user_id)
+        props.deleteFinance(props.financeData._id, props.financeData.user_id, props.token)
     }
 
     let [totalAmount, setTotalAmount] = useState(0);
