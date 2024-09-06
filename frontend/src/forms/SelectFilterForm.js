@@ -10,11 +10,11 @@ export const SelectIFilterForm = (props) => {
         <div>
             <Formik
                 enableReinitialize
-                initialValues={{ month: "january", year: 2024 }}
+                initialValues={{ month: "January", year: 2024 }}
                 onSubmit={submit}>
                 <Form>
                     <Field as="select" name="month">
-                        <option value={"january"}>January</option>
+                        <option value={"January"}>January</option>
                         <option value={"February"}>February</option>
                         <option value={"March"}>March</option>
                         <option value={"April"}>April</option>
