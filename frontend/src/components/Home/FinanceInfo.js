@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import PieGraph from '../Graphs/PieGraph';
+import { useNavigate } from 'react-router-dom';
 
 export const FinanceInfo = (props) => {
 
+    const navigate = useNavigate();
+
     const deleteFinance = () => {
-        debugger
-        console.log("here6666666666666: ");
-        props.deleteFinance(props.financeData._id, props.financeData.user_id, props.token)
+        props.deleteFinance(props.financeData._id, props.token)
     }
 
     let [totalAmount, setTotalAmount] = useState(0);
@@ -17,7 +18,6 @@ export const FinanceInfo = (props) => {
 
     return (
         <div className='FinanceInfo'>
-            {console.log(props)}
             <div>Year: {props.financeData.year}</div>
             <div>Month: {props.financeData.month}</div>
             <div>Income: {props.financeData.income}</div>
@@ -35,6 +35,7 @@ export const FinanceInfo = (props) => {
             </div>
             <div>
                 <button onClick={deleteFinance}>Delete finance</button>
+                <button onClick={() => {navigate(`/change/${props.financeData._id}`)}}>Change finance</button>
             </div>
         </div>
     )

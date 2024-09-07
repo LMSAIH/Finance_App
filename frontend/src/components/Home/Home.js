@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, version } from 'react';
 import el from './Home.module.css'
 import { getFinancesData } from '../../redux/HomeSelector';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,6 +8,7 @@ import { FinanceInfo } from './FinanceInfo';
 import { CreateNewFinanceForm } from '../../forms/CreateNewFinanceForm';
 import { SelectIFilterForm } from '../../forms/SelectFilterForm';
 import { useAuthContext } from '../../hooks/useAuthContext';
+import { OverallFinanceInfo } from './OverallFinanceInfo';
 
 //Not finished components:
 // import { AmountOutcomesEdditingForm } from './AmountOutcomesEdditingForm';
@@ -19,55 +20,64 @@ export const Home = () => {
     const [isEdditting1, setIsEdditing1] = useState(false);
     const [filter, setFilter] = useState({ month: "january", year: 2024 });
     const [finData, setFinData] = useState(null);
-    const dispatch = useDispatch();
+    const [totalOutcome, setTotalOutcome] = useState(0);
+    const [totalIncome, setTotalIncome] = useState(0);
 
-    const userId = useSelector(state => state.auth.userId)
+    const dispatch = useDispatch();
+    
+    let financesData = useSelector(getFinancesData);
+
 
     const {user} = useAuthContext();
 
     const token = user.token;
 
-    const getFinances = (userId, token) => {
+    const getFinances = (token) => {
     
-        dispatch(getFinancesTC(userId, token))
+        dispatch(getFinancesTC(token))
     }
 
-    const createNewFinance = (year, month, userId, income, concept, amount, token) => {
-        dispatch(createNewFinanceTC(year, month, userId, income, concept, amount, token))
+    const createNewFinance = (year, month, income, concept, amount, token) => {
+        dispatch(createNewFinanceTC(year, month, income, concept, amount, token))
     }
 
-    const deleteFinance = (id, userId, token) => {
-        dispatch(deleteFinanceTC(id, userId, token));
+    const deleteFinance = (id, token) => {
+        dispatch(deleteFinanceTC(id, token));
     }
 
-    let financesData = useSelector(getFinancesData);
-
+    
     useEffect(() => {
-        debugger
-        console.log(token);
-        getFinances(userId, token);
+        getFinances(token);
     }, [dispatch]);
 
     useEffect(() => {
-
-        console.log(financesData);
         let newFinanceData;
+        let finalOutcome = 0;
+        let finalIncome = 0;
         if (financesData.length > 0) {
             newFinanceData = (financesData.filter(e => {
-                console.log(e.month)
                 if (e.month === filter.month && e.year === filter.year)
-                    return true
+                {
+                    let tempOutcome = 0;
+                    finalIncome += e.income;
+                    e.outcome.forEach(outcome => {
+                        tempOutcome += outcome.amount;
+                    });;
+                    finalOutcome += tempOutcome;
+                    return true;
+                }
+                    
             }))
         }
-        console.log("here2: ");
+        setTotalIncome(finalIncome);
+        setTotalOutcome(finalOutcome);
         setFinData(newFinanceData);
-        console.log(finData);
         if (newFinanceData) {
             if (newFinanceData.length == 0) {
                 setFinData(null);
             }
         }
-
+        
     }, [financesData, filter]);
 
 
@@ -87,8 +97,9 @@ export const Home = () => {
                 <img src="https://i.pinimg.com/736x/2d/6a/c8/2d6ac85d121247db3822c81f42a4a27d--avatar-naruto-series.jpg" alt="Photo here" />
                 {user ? user.email : "not logged in"}
             </div>
+            <OverallFinanceInfo totalOutcome = {totalOutcome} totalIncome = {totalIncome}/>
             <div>
-                Graphs shit
+                Graphs shit {version}
             </div>
             <hr></hr>
             <div>
@@ -107,7 +118,7 @@ export const Home = () => {
                 <div>
                     <div>
                         {isEdditting1 ? <div>
-                            <CreateNewFinanceForm createNewFinance={createNewFinance} userId={userId} token={token} />
+                            <CreateNewFinanceForm createNewFinance={createNewFinance} token={token} />
                             <button onClick={disableNewIncome}>Stop creating an new finance object for a month and a year</button>
                         </div> : <button onClick={createNewIncome}>Create finance object for a month and a year</button>}
                     </div>

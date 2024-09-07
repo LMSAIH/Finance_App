@@ -9,7 +9,7 @@ export const CreateNewFinanceForm = (props) => {
     let submit = (values) => {
         const token = props.token;
         console.log(props.token);
-        props.createNewFinance(values.year, values.month, props.userId, values.income, values.concept, values.amount, token);
+        props.createNewFinance(values.year, values.month, values.income, values.concept, values.amount, token);
     }
 
     // const createOutcomesForm = () => {

@@ -25,12 +25,11 @@ export const FinancesAPI = {
       })
       .then((res) => res.data);
   },
-  createNewFinance(year, month, userId, income, concept, amount, token) {
+  createNewFinance(year, month, income, concept, amount, token) {
     return instance
       .post("/api/finance",  {
         year: year,
         month: month,
-        user_id: userId,
         income: income,
         outcome: [
           {
@@ -55,4 +54,22 @@ export const FinancesAPI = {
       })
       .then((res) => res.data);
   },
+  updateFinance(concept, income,
+    month, year, outcomeAmount, token, id) {
+    return instance.patch('/api/finance/'+ id, {
+        year: year,
+        month: month,
+        income: income,
+        outcome: [
+          {
+            concept: concept,
+            amount: outcomeAmount,
+          },
+        ],
+    },{
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }, 
+    }).then(res => res.data) 
+  }
 };

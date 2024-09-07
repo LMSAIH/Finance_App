@@ -6,7 +6,6 @@ const InitialState = {
         _id: "66d3860e3f28a618e2220f3d",
         month: "January",
         year: 2024,
-        user_id: "12321312",
         income: 12321,
         outcome: [
             {
@@ -25,11 +24,14 @@ const InitialState = {
         amount: 10,
         completed: 1,
     }],
+    totalOutcome: 0,
+    totalIncome: 0
 };
 
 
 const GET_FINANCES = "SET_FINANCES";
 const CREATE_FINANCE = "CREATE_FINANCE"
+const ADD_TOTAL_OUTCOMES = "ADD_TOTAL_OUTCOMES"
 
 export let financeReducer = (state = InitialState, action) => {
     switch (action.type) {
@@ -40,12 +42,18 @@ export let financeReducer = (state = InitialState, action) => {
             }
         };
         case CREATE_FINANCE: {
-            console.log(action);
             return {
                 ...state,
                 financesData: [...state.financesData, action.financesData]
             }
         }
+        case ADD_TOTAL_OUTCOMES: {
+            return {
+                ...state,
+                totalOutcome: state.totalOutcome + action.outcome
+            }
+        };
+
         default: {
             return state;
         } 
@@ -68,31 +76,39 @@ const createIncomeAC = (financesData) => {
     }
 }
 
-export const getFinancesTC = (userId, token) => async (dispatch) => {
+const addTotalOutcomes = (outcomes) => {
+    return {
+        type: "SET_TOTAL_OUTCOMES",
+        outcomes
+    }
+}
+
+export const getFinancesTC = (token) => async (dispatch) => {
       const response = await FinancesAPI.getFinances(token);
-      
       console.log(response);
-      const usersData = response.filter(e => e.user_id == userId);
-      
-      console.log(usersData);
-      dispatch(getFinancesAC(usersData))
+      console.log("^^^^^^^^");
+      dispatch(getFinancesAC(response))
 } 
 
-export const createNewFinanceTC = (year, month, userId, income, concept, amount, token) => async (dispatch) => {
-    debugger
-    console.log(`Yur boy is here ${token}`);
-    const response = await FinancesAPI.createNewFinance(year, month, userId, income, concept, amount, token);
-    
-    console.log(`this ${response}`);
-    console.log(response);
+export const createNewFinanceTC = (year, month, income, concept, amount, token) => async (dispatch) => {
+    const response = await FinancesAPI.createNewFinance(year, month, income, concept, amount, token);
     dispatch(createIncomeAC(response));
 }
 
-export const deleteFinanceTC = (id, userId, token) => async (dispatch) => {
+export const deleteFinanceTC = (id, token) => async (dispatch) => {
     const response = await FinancesAPI.deleteFinance(id, token)
     if (response.message == "data succesfully deleted") {
-        dispatch(getFinancesTC(userId, token))
+        dispatch(getFinancesTC(token))
     } else {
         console.log("Something went wrong")
     }
+}
+
+export const updateFinanceTC = (concept, income,
+    month, year, outcomeAmount, token, id) => async (dispatch) => {
+        console.log("WOOOOOW" + outcomeAmount)
+        const response = await FinancesAPI.updateFinance(concept, income,
+            month, year, outcomeAmount, token, id);
+        dispatch(getFinancesTC(token));
+
 }

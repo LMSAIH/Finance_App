@@ -6,6 +6,7 @@ import  LoginPage  from './components/LoginPage';
 import { Navbar } from './components/Navbar';
 import SignUpPage from './components/SignUpPage';
 import { useAuthContext } from './hooks/useAuthContext';
+import { ChangeFinanceForm } from './components/ChangeFinanceForm';
 
 
 function App() {
@@ -20,6 +21,11 @@ function App() {
         </div>
         <div className='Content'>
           <Routes>
+
+            {/* THIS IS NOT FINISHED */}
+            <Route path='/change/:id' element={<ChangeFinanceForm/>}/>
+
+
             <Route path='/login' element={<LoginPage />} />
             <Route path = '/signup' element={<SignUpPage />} />
             <Route path='/' element={user ? <Home /> : <Navigate to="/login" />}/>
