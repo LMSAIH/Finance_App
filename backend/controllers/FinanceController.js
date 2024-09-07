@@ -52,11 +52,13 @@ const deleteOne = async (req, res) => {
 //Posts an object
 const postOne = async (req, res) => {
   try {
+
+    const user_id = req.user._id;
     const emptyFields = [];
     const data = {
       year: req.body.year,
       month: req.body.month,
-      user_id: req.body.user_id,
+      user_id: user_id,
       income: req.body.income,
       outcome: req.body.outcome,
     };
