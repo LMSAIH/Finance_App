@@ -14,25 +14,22 @@ export const Navbar = () => {
 
     return (
       <nav>
+        <div>{(user ? user.email : "Not logged in")}</div>
+        <hr />
         <div>
-            {userName}
+          <Link to="/">Home</Link>
         </div>
         <div>
-            {email}
-        </div>
-        <hr/>
-        <div>
-          <Link to='/'>Home</Link>
+          <Link>Landing page</Link>
         </div>
         <div>
-          <Link to='/landing'>Landing page</Link>
+          <Link to="/login">Login</Link>
         </div>
         <div>
-          <Link to='/login'>Login</Link>
+          <Link to="/signup">Sign up</Link>
         </div>
-        <div>
-          <Link to='/signup'>Sign up</Link>
-        </div>
+        <button onClick={logout}>logout</button>
       </nav>
-    )
+    );
+    
   }

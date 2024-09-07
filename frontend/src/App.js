@@ -18,6 +18,8 @@ function App() {
         <div className='Content'>
           <Routes>
             <Route path='/landing' element={<LandingPage />} />
+            {/* THIS IS NOT FINISHED */}
+            <Route path='/change/:id' element={<ChangeFinanceForm/>}/>
             <Route path='/login' element={<LoginPage />} />
             <Route path = '/signup' element={<SignUpPage />} />
             <Route path='/' element={<Home />} />
