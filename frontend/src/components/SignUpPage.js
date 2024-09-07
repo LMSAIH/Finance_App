@@ -29,7 +29,6 @@ const SignUpPage = () => {
             setIsLoading(false);
         });
 
-
     }
 
     return (

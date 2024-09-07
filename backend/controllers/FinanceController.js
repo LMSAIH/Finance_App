@@ -3,8 +3,14 @@ const FinanceInfo = require("../models/FinanceInfo");
 
 //gets all the finance information
 const getAll = async (req, res) => {
-  const data = await FinanceInfo.find({}).sort({ createdAt: -1 });
+
+  const user_id = req.user._id;
+
+  console.log(user_id);
+
+  const data = await FinanceInfo.find({user_id: user_id}).sort({ createdAt: -1 });
   res.status(200).json(data);
+
 };
 
 //gets just one record
@@ -46,11 +52,13 @@ const deleteOne = async (req, res) => {
 //Posts an object
 const postOne = async (req, res) => {
   try {
+
+    const user_id = req.user._id;
     const emptyFields = [];
     const data = {
       year: req.body.year,
       month: req.body.month,
-      user_id: req.body.user_id,
+      user_id: user_id,
       income: req.body.income,
       outcome: req.body.outcome,
     };
