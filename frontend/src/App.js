@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Route, Router, Routes } from 'react-router-dom';
 import { Home } from './components/Home/Home';
 import { LoginPage } from './components/LoginPage';
 import { Navbar } from './components/Navbar';
+import LandingPage from './components/LandingPage';
 import SignUpPage from './components/SignUpPage';
 
 
@@ -16,6 +17,7 @@ function App() {
         </div>
         <div className='Content'>
           <Routes>
+            <Route path='/landing' element={<LandingPage />} />
             <Route path='/login' element={<LoginPage />} />
             <Route path = '/signup' element={<SignUpPage />} />
             <Route path='/' element={<Home />} />

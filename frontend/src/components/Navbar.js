@@ -25,7 +25,7 @@ export const Navbar = () => {
           <Link to='/'>Home</Link>
         </div>
         <div>
-          <Link>Landing page</Link>
+          <Link to='/landing'>Landing page</Link>
         </div>
         <div>
           <Link to='/login'>Login</Link>
