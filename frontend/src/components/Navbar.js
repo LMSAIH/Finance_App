@@ -19,10 +19,10 @@ export const Navbar = () => {
       <div>{(user ? user.email : "Not logged in")}</div>
       <hr />
       <div>
-        <Link to="/">Home</Link>
+        <Link to="/home">Home</Link>
       </div>
       <div>
-        <Link>Landing page</Link>
+        <Link to='/'>Landing page</Link>
       </div>
       <div>
         <Link to="/login">Login</Link>
@@ -34,25 +34,4 @@ export const Navbar = () => {
     </nav>
   );
 };
-
-    return (
-      <nav>
-        <div>{(user ? user.email : "Not logged in")}</div>
-        <hr />
-        <div>
-          <Link to="/">Home</Link>
-        </div>
-        <div>
-          <Link>Landing page</Link>
-        </div>
-        <div>
-          <Link to="/login">Login</Link>
-        </div>
-        <div>
-          <Link to="/signup">Sign up</Link>
-        </div>
-        <button onClick={logout}>logout</button>
-      </nav>
-    );
     
-  }

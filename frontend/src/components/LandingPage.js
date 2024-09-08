@@ -2,36 +2,42 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Landing from '../Landing.css';
+import el from "./LandingPage.css"
+
 
 const LandingPage = () => {
     return ( 
-    
-    <div className="wrapper">
-
-        <nav className="navbar">
-            <img src="https://www.shutterstock.com/image-vector/flat-vector-cute-cartoon-panda-600nw-2343798945.jpg" alt="Logo" height={50} />
-            <div className="contact-login">
-                    
-            <div>
-                <Link to='/login'>Login</Link>
-                </div>
-                <div>
-                <Link to='/signup'>Sign up</Link>
-                </div>
-                <div className="search-bar">
-                    <input type="text" placeholder="Search" />
-                    <button>🔍</button>
+       
+            <div className={el.wrapper}>
+        
+                <nav className={el.navbar}>
+                    <img src="../components/images/image.png" alt="Logo" height="100px" />
+        
+                    <div className={el.spread}>
+                            
+                        <ul className={el.navlist}>
+                            <li><a href='/login'>Login</a></li>
+                            <li><a href='/signup'>Sign up</a></li>
+                            <li>
+                                <div className={el.rightNav}>
+                                    <input type="text" name="search" id="search" placeholder="Search"/>
+                                    <button className={el.button}>🔍</button>
+                                </div>
+                            </li>
+                        </ul>
+                        
+        
+                        
+        
+                    </div>
+                </nav>
+        
+                <div className={el.container}>
+                    <h1>Welcome to Finance App!</h1>
+                    <h3>Your personal wallet</h3>
+                    <p>Manage your finances in one place.</p>
                 </div>
             </div>
-        </nav>
-
-        <div className="container">
-            <h1>Welcome to FinanceApp</h1>
-            <p>Manage your finances in one place.</p>
-        </div>
-    </div>
-    
-
 
      );
 }

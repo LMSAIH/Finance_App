@@ -1,4 +1,4 @@
-.Wrapper {
+ .Wrapper {
     display: grid;
     grid-template-areas:
     'n c';
@@ -18,10 +18,12 @@
     background-color: black;
     color: white;
 }
+
 .PieChart {
     width: 20%;
 }
 
 .FinanceInfo {
     display: inline-block;
-}
+} 
+ 
