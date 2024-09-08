@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Landing from '../Landing.css';
+import Landing from './LandingPage.css';
 import logo from './images/image.png';
 
 
