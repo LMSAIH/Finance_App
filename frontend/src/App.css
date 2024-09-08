@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 
 .Wrapper {
-    background-color: #FFFAFF;
+    background-color: #303036;
     display: flex;
     flex-direction: row;
     justify-content: baseline;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
 }
 
 
@@ -18,7 +18,7 @@
     overflow: hidden;
     transition: 0.25s;
     opacity: 0.9;
-    color:white;
+    color: white;
 
 }
 
@@ -32,9 +32,9 @@
 }
 
 .Wrapper .Navbar nav>div {
-    margin-top:20%;
-    margin-bottom:20%;
-    padding:0;
+    margin-top: 20%;
+    margin-bottom: 20%;
+    padding: 0;
     border-bottom: solid 0.2rem black;
 }
 
@@ -42,7 +42,7 @@
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
-    color:white;
+    color: white;
 
 }
 
@@ -54,7 +54,7 @@
 .Wrapper .Navbar a {
     text-decoration: none;
     color: white;
-    transition:0.25s;
+    transition: 0.25s;
 }
 
 .Wrapper .Navbar p {
@@ -71,8 +71,8 @@
     display: block;
 }
 
-.Wrapper .Navbar:hover .user p{
-    display:block;
+.Wrapper .Navbar:hover .user p {
+    display: block;
 }
 
 
@@ -108,14 +108,79 @@
 }
 
 
-.Wrapper .Navbar a:hover{
-    transform:translateX(10px);
+.Wrapper .Navbar a:hover {
+    transform: translateX(10px);
 }
 
-.Wrapper .Content{
-    background-color:#303036;
-    padding-left:5%;
-    margin-left:0;
-    width:100%;
-    color:white;
+.Wrapper .Content {
+    background-color: #303036;
+    padding-left: 5%;
+    margin-left: 0;
+    width: 100%;
+    color: white;
+
+}
+
+.Wrapper .Content>div {
+    margin-top: 2%;
+    margin-left: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: baseline;
+}
+
+.Wrapper .thisMonth {
+
+    margin-left: 0;
+    height: fit-content;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 42px;
+    background: #303036;
+    box-shadow: 6px 6px 12px #1d1d20,
+        -6px -6px 12px #43434c;
+    padding-right: 2%;
+    padding-bottom: 2%;
+}
+
+.Wrapper .thisMonthInfo {
+    font-family: 'Roboto';
+    margin: auto;
+    width: fit-content;
+}
+
+.Wrapper .PieChart {
+    width: 40%;
+}
+
+.Wrapper .PieChart h3 {
+    text-align: center;
+}
+
+.Wrapper .financialInfo {
+    border-radius: 42px;
+    background: #303036;
+    box-shadow: 6px 6px 12px #1d1d20,
+        -6px -6px 12px #43434c;
+    margin-left: 3%;
+    padding:2%;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    gap:10px;
+}
+
+.Wrapper .financialInfo .selectionForm>form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.Wrapper .financialInfo .selectionForm input,
+button {
+    margin-top: 5%;
 }
