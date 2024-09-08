@@ -93,28 +93,15 @@ export const Home = () => {
 
     return (
         <div>
-            <div className={el.User}>
-                <img src="https://i.pinimg.com/736x/2d/6a/c8/2d6ac85d121247db3822c81f42a4a27d--avatar-naruto-series.jpg" alt="Photo here" />
-                {user ? user.email : "not logged in"}
-            </div>
-            <OverallFinanceInfo totalOutcome = {totalOutcome} totalIncome = {totalIncome}/>
-            <div>
-                Graphs shit {version}
-            </div>
-            <hr></hr>
-            <div>
+            <OverallFinanceInfo totalOutcome = {totalOutcome} totalIncome = {totalIncome} />
+            
+            <div className = "financialInfo">
                 <div>
                     <SelectIFilterForm setFilter={setFilter} />
                 </div>
                 {(finData) ? (finData.map(e => <FinanceInfo financeData={e} deleteFinance={deleteFinance} token={token} />)) : (
                     <div>Loading...</div>
                 )}
-                <div>
-                    <div>
-                        Deleting finance
-                    </div>
-                </div>
-                Forms for creating new incomes or wastings
                 <div>
                     <div>
                         {isEdditting1 ? <div>
