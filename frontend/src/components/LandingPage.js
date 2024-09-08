@@ -27,8 +27,6 @@ const LandingPage = () => {
                         </ul>
                         
         
-                        
-        
                     </div>
                 </nav>
         
