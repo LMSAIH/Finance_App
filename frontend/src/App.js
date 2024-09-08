@@ -1,5 +1,4 @@
 import React from 'react';
-//import './App.css';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Home } from './components/Home/Home';
 import LoginPage from './components/LoginPage';
@@ -9,18 +8,21 @@ import SignUpPage from './components/SignUpPage';
 import { useAuthContext } from './hooks/useAuthContext';
 import { ChangeFinanceForm } from './components/ChangeFinanceForm';
 
-function AppContent() {
+// Import both CSS files
+import './components/LandingPage.css';
+import './App.css';
 
-  
+function AppContent() {
   const { user } = useAuthContext();
   const location = useLocation();
 
-  (location.pathname === '/') ? import( './components/LandingPage.css') : import ('./App.css');
+  // Determine which class name to use based on the current route
+  const wrapperClass = location.pathname === '/' ? "wrapper" : "Wrapper";
 
   return (
-    <div className={location.pathname === '/' ? "wrapper" : "Wrapper"}>
+    <div className={wrapperClass}>
       <div className="Navbar">
-        {location.pathname === '/' ? <div /> : <Navbar />}
+        {location.pathname === '/' ? null : <Navbar />}
       </div>
       <div className={location.pathname === '/' ? "" : "Content"}>
         <Routes>

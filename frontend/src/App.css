@@ -1,4 +1,6 @@
- .Wrapper {
+
+.Wrapper {
+    background-color: white;
     display: grid;
     grid-template-areas:
     'n c';
@@ -7,23 +9,23 @@
 }
 
 
-.Navbar {
+.Wrapper .Navbar {
     grid-area: n;
     background-color: yellow;
     color: black
 }
 
-.Content {
+.Wrapper .Content {
     grid-area: c;
     background-color: black;
     color: white;
 }
 
-.PieChart {
+.Wrapper .PieChart {
     width: 20%;
 }
 
-.FinanceInfo {
+.Wrapper .FinanceInfo {
     display: inline-block;
 } 
  

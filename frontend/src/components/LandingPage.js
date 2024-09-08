@@ -2,26 +2,26 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Landing from '../Landing.css';
-import el from "./LandingPage.css"
+import logo from './images/image.png';
 
 
 const LandingPage = () => {
     return ( 
        
-            <div className={el.wrapper}>
+            <div className="wrapper">
         
-                <nav className={el.navbar}>
-                    <img src="../components/images/image.png" alt="Logo" height="100px" />
+                <nav className=".navbar">
+                    <img src={logo} alt="Logo" height="100px" />
         
-                    <div className={el.spread}>
+                    <div className="spread">
                             
-                        <ul className={el.navlist}>
+                        <ul className="nav-list">
                             <li><a href='/login'>Login</a></li>
                             <li><a href='/signup'>Sign up</a></li>
                             <li>
-                                <div className={el.rightNav}>
+                                <div className="rightNav">
                                     <input type="text" name="search" id="search" placeholder="Search"/>
-                                    <button className={el.button}>🔍</button>
+                                    <button className="btn">🔍</button>
                                 </div>
                             </li>
                         </ul>
@@ -32,7 +32,7 @@ const LandingPage = () => {
                     </div>
                 </nav>
         
-                <div className={el.container}>
+                <div className="container">
                     <h1>Welcome to Finance App!</h1>
                     <h3>Your personal wallet</h3>
                     <p>Manage your finances in one place.</p>
