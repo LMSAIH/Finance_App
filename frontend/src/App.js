@@ -28,8 +28,8 @@ function AppContent() {
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='/change/:id' element={<ChangeFinanceForm />} />
-          <Route path='/login' element={<LoginPage />} />
-          <Route path='/signup' element={<SignUpPage />} />
+          <Route path='/login' element={user ? <Navigate to="/home" /> : <LoginPage />} />
+          <Route path='/signup' element={user ? <Navigate to="/home" /> : <SignUpPage />} />
           <Route path='/home' element={user ? <Home /> : <Navigate to="/login" />} />
         </Routes>
       </div>
