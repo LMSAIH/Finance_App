@@ -114,7 +114,8 @@
 
 .Wrapper .Content{
     background-color:#303036;
-    margin-left:4%;
+    padding-left:5%;
+    margin-left:0;
     width:100%;
     color:white;
 }
