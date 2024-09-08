@@ -7,7 +7,7 @@ export const SelectIFilterForm = (props) => {
         props.setFilter({ month: values.month, year: values.year });
     }
     return (
-        <div>
+        <div className = "selectionForm">
             <Formik
                 enableReinitialize
                 initialValues={{ month: "January", year: 2024 }}
