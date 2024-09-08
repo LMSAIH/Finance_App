@@ -1,31 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 
 .Wrapper {
-    background-color: white;
-    display: grid;
-    grid-template-areas:
-    'n c';
-    grid-template-columns: 1fr 10fr;
-    grid-gap: 10px;
+    background-color: #FFFAFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    width: 100%;
+    height: 100%;
 }
 
 
 .Wrapper .Navbar {
-    grid-area: n;
-    background-color: yellow;
-    color: black
+    background-color: #FC5130;
+    position: fixed;
+    width: 4%;
+    height: 100%;
+    overflow: hidden;
+    transition: 0.25s;
+    opacity: 0.9;
+
 }
+
+.Wrapper .Navbar svg {
+    margin: auto;
+}
+
+.Wrapper .Navbar a p {
+    display: none;
+}
+
+.Wrapper .Navbar nav>div {
+    margin-top:20%;
+    margin-bottom:20%;
+    padding:0;
+    border-bottom: solid 0.2rem black;
+}
+
+.Wrapper .icon {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.Wrapper .icon svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.Wrapper .Navbar a {
+    text-decoration: none;
+    color: black;
+    transition:0.25s;
+}
+
+.Wrapper .Navbar p {
+    margin: 0;
+    padding: 0;
+}
+
+.Wrapper .Navbar:hover {
+    padding-right: 20px;
+    width: fit-content;
+}
+
+.Wrapper .Navbar:hover a p {
+    display: block;
+}
+
+.Wrapper .Navbar:hover .user p{
+    display:block;
+}
+
+
+.Wrapper .user p {
+    display: none;
+    text-align: center;
+}
+
+.Wrapper .Navbar:hover div a {
+    display: inline-flex;
+}
+
 
 .Wrapper .Content {
-    grid-area: c;
-    background-color: black;
-    color: white;
+    margin-left: 5%;
 }
 
-.Wrapper .PieChart {
-    width: 20%;
+.Wrapper .Navbar p {
+    font-family: 'roboto';
+    font-size: 1rem;
+    margin: auto;
+    margin-left: 5%;
 }
 
-.Wrapper .FinanceInfo {
-    display: inline-block;
-} 
- 
+.Wrapper .Navbar .logout {
+    width: fit-content;
+}
+
+.Wrapper .Navbar .logout button {
+    width: 100%;
+    height: 100%;
+
+}
+
+
+.Wrapper .Navbar a:hover{
+    transform:translateX(10px);
+}
