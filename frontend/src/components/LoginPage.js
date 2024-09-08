@@ -22,7 +22,7 @@ const LoginPage = () => {
             localStorage.setItem('user', JSON.stringify(response.data));
             setIsLoading(false);
             dispatch({type: 'LOGIN', payload: response.data});
-            navigate('/');
+            navigate('/home');
         })
         .catch((err) => {
             setError(err.response.data.error);
