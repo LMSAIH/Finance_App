@@ -85,13 +85,14 @@ const addTotalOutcomes = (outcomes) => {
 
 export const getFinancesTC = (token) => async (dispatch) => {
       const response = await FinancesAPI.getFinances(token);
-      console.log(response);
-      console.log("^^^^^^^^");
+      
       dispatch(getFinancesAC(response))
 } 
 
-export const createNewFinanceTC = (year, month, income, concept, amount, token) => async (dispatch) => {
-    const response = await FinancesAPI.createNewFinance(year, month, income, concept, amount, token);
+export const createNewFinanceTC = (year, month, income, outcomes, token) => async (dispatch) => {
+    console.log(outcomes);
+    console.log("^^^^^^^^");
+    const response = await FinancesAPI.createNewFinance(year, month, income, outcomes, token);
     dispatch(createIncomeAC(response));
 }
 
