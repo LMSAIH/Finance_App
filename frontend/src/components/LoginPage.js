@@ -33,6 +33,7 @@ const LoginPage = () => {
 
     return (
         <div className = "loginform">
+            <h4>Login page</h4>
             <form onSubmit = {handleSubmit}> 
                 <label>Email: </label>
                 <input type = "email" onChange={(e)=>{setEmail(e.target.value)}} name="email" value={email}></input> 

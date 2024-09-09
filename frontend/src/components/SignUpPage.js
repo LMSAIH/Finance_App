@@ -33,6 +33,7 @@ const SignUpPage = () => {
 
     return (
         <div className = "signupform">
+            <h4>Sign up</h4>
             <form onSubmit = {handleSubmit}> 
                 <label>Email: </label>
                 <input type = "email" onChange={(e)=>{setEmail(e.target.value)}} name="email" value={email}></input> 
