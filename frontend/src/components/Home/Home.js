@@ -37,8 +37,8 @@ export const Home = () => {
         dispatch(getFinancesTC(token))
     }
 
-    const createNewFinance = (year, month, income, concept, amount, token) => {
-        dispatch(createNewFinanceTC(year, month, income, concept, amount, token))
+    const createNewFinance = (year, month, income, outcomes, token) => {
+        dispatch(createNewFinanceTC(year, month, income, outcomes, token))
     }
 
     const deleteFinance = (id, token) => {
