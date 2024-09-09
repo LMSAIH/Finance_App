@@ -25,18 +25,13 @@ export const FinancesAPI = {
       })
       .then((res) => res.data);
   },
-  createNewFinance(year, month, income, concept, amount, token) {
+  createNewFinance(year, month, income, outcomes, token) {
     return instance
       .post("/api/finance",  {
         year: year,
         month: month,
         income: income,
-        outcome: [
-          {
-            concept: concept,
-            amount: amount,
-          },
-        ],
+        outcome: outcomes,
       },
       {
         headers: {

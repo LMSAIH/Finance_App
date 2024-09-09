@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 export const FinanceInfo = (props) => {
 
+    console.log(props.financeData);
+        console.log("HERE");
     const navigate = useNavigate();
 
     const deleteFinance = () => {
@@ -14,6 +16,7 @@ export const FinanceInfo = (props) => {
     useEffect(() => {
         const newTotalAmount = props.financeData.outcome.reduce((sum, e) => sum + e.amount, 0);
         setTotalAmount(newTotalAmount);
+        
     }, [props.financeData.outcome]);
 
     return (
@@ -25,13 +28,12 @@ export const FinanceInfo = (props) => {
                 Outcome: {props.financeData.outcome.map(e => {
                     return (<div>
                         <div>{e.concept}: {e.amount}</div>
-                        <PieGraph income={props.financeData.income} outcome={[{
-                            concept: e.concept,
-                            amount: totalAmount
-                        }]} />
                     </div>
                     )
                 })}
+            </div>
+            <div>
+            <PieGraph income={props.financeData.income} outcome={props.financeData.outcome} />
             </div>
             <div>
                 <button onClick={deleteFinance}>Delete finance</button>
