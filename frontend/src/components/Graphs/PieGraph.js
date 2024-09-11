@@ -18,10 +18,20 @@ const PieChart = ({ income, outcome }) => {
     //Only set the income to green
     const backgroundColors = ["rgb(0,255,0)"];
 
+    function chooseColor() {
+      let red = Math.floor(Math.random() * (255 - 100) + 100);
+      let green = Math.floor(Math.random() * (255 - 100) + 100);
+      let blue = Math.floor(Math.random() * (255 - 100) + 100);
+
+      let color = `rgb(${red}, ${green}, ${blue})`;
+
+      return color;
+    }
+
     outcome.forEach((out) => {
       concepts.push(out.concept);
       amounts.push(out.amount);
-      backgroundColors.push("rgb(255,0,0)");
+      backgroundColors.push(chooseColor());
     });
 
     setOutcomeConcepts(concepts);
@@ -33,7 +43,7 @@ const PieChart = ({ income, outcome }) => {
     console.log(spending);
     setTotalSpending(spending);
     setToSave(income - spending);
-    console.log("Tosave: ", income-spending );
+    console.log("Tosave: ", income - spending);
   }, [income, outcome]);
 
   const pieChartData = {
