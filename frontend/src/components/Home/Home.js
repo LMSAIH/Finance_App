@@ -109,7 +109,9 @@ export const Home = () => {
         <SelectIFilterForm setFilter={setFilter} />
       </div>
 
+      <h3 className = "financeInfoHeader"> Your financial plans </h3>
       <div className="financialInfo">
+      
         {finData ? (
           finData.map((e) => (
             <FinanceInfo
@@ -120,7 +122,7 @@ export const Home = () => {
             />
           ))
         ) : (
-          <div>Loading...</div>
+          <div>It is empty here, start planning your finances!</div>
         )}
       </div>
     </div>
