@@ -151,6 +151,7 @@
 
     font-size: 1.4rem;
     border-bottom: solid 2px #30BCED;
+    
 
 }
 
@@ -165,9 +166,6 @@
     width: fit-content;
 }
 
-.Wrapper .PieChart {
-    width: 45%;
-}
 
 .Wrapper .PieChart h3 {
     text-align: center;
@@ -233,6 +231,8 @@
     flex-wrap: wrap;
     flex-shrink: 0;
     gap: 10px;
+    margin-right:5%;
+    justify-content: center;
 }
 
 .Wrapper .financialInfo .selectionForm>form {
@@ -254,7 +254,7 @@ button {
     padding: 2%;
     width: fit-content;
     height: fit-content;
-    position:relative;
+    position: relative;
 }
 
 .Wrapper .createNew .openCreateBtn {
@@ -325,22 +325,23 @@ button {
     fill: red;
 }
 
-.Wrapper .createNew .add  {
+.Wrapper .createNew .add {
     background: none;
-    border:none;
-}
-.Wrapper .createNew .addOutcome  {
-   fill:white;
-   width:1.5rem;
-   height:1.5rem;
-   transition:0.25s;
+    border: none;
 }
 
-.Wrapper .createNew .addOutcome:hover  {
+.Wrapper .createNew .addOutcome {
+    fill: white;
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: 0.25s;
+}
+
+.Wrapper .createNew .addOutcome:hover {
     fill: green;
- }
+}
 
- .Wrapper .createNew .submit{
+.Wrapper .createNew .submit {
     margin: auto;
     color: white;
     border-color: white;
@@ -349,13 +350,13 @@ button {
     width: fit-content;
     background-color: #303036;
     transition: 0.25s;
- }
- 
- .Wrapper .createNew .submit:hover{
-   border-color:#30BCED;
- }
+}
 
- .Wrapper .createNew .closeCreateBtn{
+.Wrapper .createNew .submit:hover {
+    border-color: #30BCED;
+}
+
+.Wrapper .createNew .closeCreateBtn {
     margin: auto;
     color: white;
     border-color: white;
@@ -364,11 +365,108 @@ button {
     width: fit-content;
     background-color: #303036;
     transition: 0.25s;
-    position:absolute;
-    top:3%;
-    left:80%;
- }
+    position: absolute;
+    top: 3%;
+    left: 80%;
+}
 
- .Wrapper .createNew .closeCreateBtn:hover{
+.Wrapper .createNew .closeCreateBtn:hover {
     border-color: red;
- }
+}
+
+.Wrapper .PieChart .upDown svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.Wrapper .PieChart .upDown {
+    font-family: 'roboto';
+    font-size: 1rem;
+    margin: auto;
+    width: fit-content;
+}
+
+.Wrapper .financeInfoHeader {
+    font-family: 'roboto';
+    text-align: center;
+    width: 90%;
+    font-size: 2.5rem;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+    text-decoration-color: #30BCED;
+    background: #30BCED;
+    background: radial-gradient(circle farthest-corner at right center, #30BCED 24%, #54CF03 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.Wrapper .financialInfo .FinanceInfo{
+  display:flex;
+  flex-direction: row;
+  overflow: visible;
+
+}
+
+.Wrapper .financialInfo .financialContent{
+    display:flex;
+    flex-direction: column;
+    margin:auto;
+    row-gap: 1rem;
+}
+
+.Wrapper .financialContent div{
+    font-family:'roboto';
+    font-size:1.5rem;
+}
+
+.Wrapper .financialContent svg{
+    width:1.5rem;
+    height:1.5rem;
+    margin-right:0.5rem;
+}
+
+.Wrapper .financialContent div .PieChart{
+    width:100%;
+}
+
+.Wrapper .financialContent .PieChart h3{
+    font-size:1.5rem;
+  
+}
+
+.Wrapper .financialContent .PieChart{
+
+    height: fit-content;
+}
+
+.Wrapper .FinanceInfo{
+
+    padding:2rem;
+    position:relative;
+}
+
+.Wrapper .FinanceInfo button{
+    background:none;
+    border:none;
+    overflow: auto;
+}
+
+.Wrapper .FinanceInfo .actionButtons{
+    position:absolute;
+   top:90%;
+}
+.Wrapper .FinanceInfo .bi-trash,.Wrapper .FinanceInfo .bi-toggles2{
+    fill:white;
+    transition:0.25s;
+    width:1.5rem;
+    height:1.5rem;
+
+}
+
+.Wrapper .FinanceInfo .bi-trash:hover{
+    fill:red;
+}
+
+.Wrapper .FinanceInfo .bi-toggles2:hover{
+    fill: #30BCED;
+}
