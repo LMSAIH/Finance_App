@@ -94,8 +94,8 @@ export const Home = () => {
                 createNewFinance={createNewFinance}
                 token={token}
               />
-              <button onClick={disableNewIncome}>
-                Stop creating an new finance object for a month and a year
+              <button onClick={disableNewIncome} className="closeCreateBtn">
+                Close
               </button>
             </div>
           ) : (
