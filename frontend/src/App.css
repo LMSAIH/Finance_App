@@ -384,6 +384,19 @@ button {
     font-size: 1rem;
     margin: auto;
     width: fit-content;
+    color:black;
+}
+
+.Wrapper .PieChart .up{
+    background-color:rgb(173, 246, 173);
+    border-radius: 1rem;
+    padding:5px;
+}
+
+.Wrapper .PieChart .down{
+    background-color:#ffcccb;
+    border-radius: 1rem;
+    padding:5px;
 }
 
 .Wrapper .financeInfoHeader {
@@ -469,4 +482,8 @@ button {
 
 .Wrapper .FinanceInfo .bi-toggles2:hover{
     fill: #30BCED;
+}
+
+.LineGraph{
+    width:100vw;
 }
