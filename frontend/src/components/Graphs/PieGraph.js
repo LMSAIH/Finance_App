@@ -67,10 +67,18 @@ const PieChart = ({ income, outcome }) => {
 
   const options = {};
 
+  const chooseClassName = () => {
+    if(totalSpending<income){
+      return "up";
+    } else {
+      return "down";
+    }
+  }
   return (
     <div className="PieChart">
       <h3>The income for this month: {income}</h3>
-      <div className="upDown">
+      <div className= "upDown">
+        <div className={chooseClassName()}>
         {totalSpending < income && (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -96,6 +104,7 @@ const PieChart = ({ income, outcome }) => {
           </svg>
         )}
         {Math.abs(income - totalSpending)}
+        </div>
       </div>
       {/* there was a delete button, but i decided to seperate functionality in wrapper component, if you have any concerns text me */}
       <Pie options={options} data={pieChartData} />
