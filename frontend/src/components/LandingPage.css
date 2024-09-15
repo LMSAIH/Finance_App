@@ -78,10 +78,12 @@ body{
 
 .wrapper .workspace {
     display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .wrapper .workspace .container {
-    float: left;
+
     width: 55%;
 }
 
@@ -110,3 +112,29 @@ body{
     margin-bottom: 30%;
     margin-top: 2em;
 }
+
+.wrapper .PolarArea{
+    margin:auto;
+    width:fit-content;
+    display:flex;
+    flex-direction:row;
+}
+
+.wrapper .PolarArea h3{
+    font-family: 'roboto';
+    color:white;
+    text-align: center;
+    font-size:2rem;
+}
+
+.wrapper .PolarArea .wheel{
+    color:#30bced;
+    
+}
+
+.wrapper .PolarArea .inputs{
+    margin:auto;
+    display:flex;
+    flex-direction: column;
+}
+

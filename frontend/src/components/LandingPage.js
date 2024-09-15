@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Landing from './LandingPage.css';
 import logo from './images/image.png';
+import LandingPageGraph from './Graphs/LandingPageGraph';
 
 
 const LandingPage = () => {
@@ -32,7 +33,7 @@ const LandingPage = () => {
                     </div>
 
                     <div className="container2">
-                        
+                        <LandingPageGraph />
                     </div>
                 </div>
                 
