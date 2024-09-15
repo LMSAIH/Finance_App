@@ -9,7 +9,7 @@ import { CreateNewFinanceForm } from "../../forms/CreateNewFinanceForm";
 import { SelectIFilterForm } from "../../forms/SelectFilterForm";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { OverallFinanceInfo } from "./OverallFinanceInfo";
-
+import { LineGraphContainer } from "./LineGraphContainer";
 //Not finished components:
 // import { AmountOutcomesEdditingForm } from './AmountOutcomesEdditingForm';
 // import { OutcomesForm } from './OutcomesForm';
@@ -123,8 +123,9 @@ export const Home = () => {
           ))
         ) : (
           <div>It is empty here, start planning your finances!</div>
-        )}
+        )}        
       </div>
+      <LineGraphContainer financesData={financesData}/>
     </div>
   );
 };

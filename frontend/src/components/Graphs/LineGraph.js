@@ -22,6 +22,12 @@ ChartJS.register(
 );
 
 const LineGraph = ({ incomes, outcomes, months }) => {
+
+  console.log("/////////////////////////////")
+  console.log(incomes)
+  console.log(outcomes)
+  console.log(months)
+
   const [data, setData] = useState();
 
   useEffect(() => {
