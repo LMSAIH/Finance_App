@@ -24,11 +24,18 @@ const LandingPage = () => {
                     </div>
                 </nav>
         
-                <div className="container">
-                    <h1>Welcome to Finance App</h1>
-                    <h3>Your personal wallet</h3>
-                    <p>Manage all your finances in one place.</p>
+                <div className="workspace">
+                    <div className="container">
+                        <h2>Discover how you can manage all your finances with an application that can take care of organizing it all for you.</h2>
+                        <h1>Welcome to Finance App.</h1>
+                        <h3>Your path for success.</h3>
+                    </div>
+
+                    <div className="container2">
+                        
+                    </div>
                 </div>
+                
             </div>
 
      );
