@@ -16,7 +16,6 @@ export const FinancesAPI = {
       .then((res) => res.body);
   },
   getFinances(token) {
-    console.log(`in get finances: ${token}`);
     return instance
       .get("/api/finance/", {
         headers: {
