@@ -87,51 +87,74 @@ const LandingPageGraph = () => {
       </div>
 
       <div className="inputs">
-        <input
-          id="myRange"
-          className="investments"
-          value={investments}
-          max="50"
-          min="0"
-          type="range"
-          onChange={(e) => {setInvestments(e.target.value)}}
-        />
-        <input
-          id="myRange"
-          className="savings"
-          value={savings}
-          max="50"
-          min="0"
-          type="range"
-          onChange={(e) => {setSavings(e.target.value)}}
-        />
-        <input
-          id="myRange"
-          className="fourk"
-          value={fourk}
-          max="50"
-          min="0"
-          type="range"
-          onChange={(e) => {setFourk(e.target.value)}}
-        />
-        <input
-          id="myRange"
-          className="crypto"
-          value={crypto}
-          max="50"
-          min="0"
-          type="range"
-          onChange={(e) => {setCrypto(e.target.value)}}
-        />
-        <input
-          id="myRange"
-          className="features"
-          value={features}
-          max="50"
-          min="0"
-          type="range"
-          onChange={(e) => {setFeatures(e.target.value)}}
-        />
+        <div className="investmentsBox">
+          <input
+            id="myRange"
+            className="investments"
+            value={investments}
+            max="50"
+            min="0"
+            type="range"
+            onChange={(e) => {
+              setInvestments(e.target.value);
+            }}
+          />
+        </div>
+        <div className="savingsBox">
+          <input
+            id="myRange"
+            className="savings"
+            value={savings}
+            max="50"
+            min="0"
+            type="range"
+            onChange={(e) => {
+              setSavings(e.target.value);
+            }}
+          />
+        </div>
+
+        <div className="fourkBox">
+          <input
+            id="myRange"
+            className="fourk"
+            value={fourk}
+            max="50"
+            min="0"
+            type="range"
+            onChange={(e) => {
+              setFourk(e.target.value);
+            }}
+          />
+        </div>
+
+        <div className="cryptoBox">
+          <input
+            id="myRange"
+            className="crypto"
+            value={crypto}
+            max="50"
+            min="0"
+            type="range"
+            onChange={(e) => {
+              setCrypto(e.target.value);
+            }}
+          />
+        </div>
+
+        <div className="featuresBox">
+          <input
+            id="myRange"
+            className="features"
+            value={features}
+            max="50"
+            min="0"
+            type="range"
+            onChange={(e) => {
+              setFeatures(e.target.value);
+            }}
+          />
+        </div>
       </div>
     </div>
   );
