@@ -138,3 +138,39 @@ body{
     flex-direction: column;
 }
 
+.wrapper .inputs>div{
+
+    width:fit-content;
+    height:fit-content;
+    border-style:solid;
+    border-radius: 10px;
+    padding:0.1rem;
+    margin-bottom:1.2rem;
+}
+
+.wrapper .inputs .investmentsBox{
+    background-color: rgba(255, 99, 132, 0.2);
+    border-color: rgba(255, 99, 132, 1);
+}
+
+.wrapper .inputs .savingsBox{
+    background-color: rgba(54, 162, 235, 0.2);
+    border-color: rgba(54, 162, 235, 1);
+}
+
+.wrapper .inputs .fourkBox{
+    background-color: rgba(255, 206, 86, 0.2);
+    border-color: rgba(255, 206, 86, 1);
+}
+
+.wrapper .inputs .cryptoBox{
+    background-color: rgba(75, 192, 192, 0.2);
+    border-color: rgba(75, 192, 192, 1);
+}
+
+.wrapper .inputs .featuresBox{
+    background-color: rgba(153, 102, 255, 0.2);
+    border-color: rgba(153, 102, 255, 1);
+}
+
+
