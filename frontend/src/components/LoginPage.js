@@ -33,13 +33,13 @@ const LoginPage = () => {
 
     return (
         <div className = "loginform">
-            <h4>Login page</h4>
+            <h4 className = "formTitle">Log<span className = "in">In</span></h4>
             <form onSubmit = {handleSubmit}> 
-                <label>Email: </label>
+                <label>Email </label>
                 <input type = "email" onChange={(e)=>{setEmail(e.target.value)}} name="email" value={email}></input> 
-                <label>Password: </label>
+                <label>Password </label>
                 <input type = "password" onChange={(e)=>{setPassword(e.target.value)}} name="password" value={password}></input> 
-                <button disabled = {isLoading}> Submit </button>
+                <button disabled = {isLoading} className = "submitBtn"> Log In! </button>
                 <div className = "error"> {error} </div>
             </form>
         </div>
