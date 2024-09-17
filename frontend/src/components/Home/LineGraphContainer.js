@@ -104,10 +104,10 @@ export const LineGraphContainer = (props) => {
     }, [year, props.financesData]);
 
     return (
-        <div>
+        <div className = 'lineGraphContainer'>
 
-            <h1>HERE COMPONENT</h1>
-            <input type="number" defaultValue={2024} onChange={(e) => { setYear(e.currentTarget.value) }}/>            
+            <h2>Your savings <span className = "visualized"> visualized. </span></h2>
+            <input type="number" className = "yearSelector" defaultValue={2024} onChange={(e) => { setYear(e.currentTarget.value) }}/>            
             {console.log("FILTERED DATA")}
             {console.log(filteredData)}
             {filteredData && <LineGraph incomes={filteredData.map(data => data.income)} outcomes={filteredData.map(data => data.outcome)} months={filteredData.map(data => data.month)} />}
