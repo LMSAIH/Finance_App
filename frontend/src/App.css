@@ -5,8 +5,13 @@
     display: flex;
     flex-direction: row;
     justify-content: baseline;
-    width: 100%;
     min-height: 100vh;
+}
+
+.Wrapper .Content {
+
+    width: 100%;
+
 }
 
 
@@ -86,7 +91,7 @@
 }
 
 
-.Wrapper .Content {
+.Wrapper .homeContent {
     margin-left: 5%;
 }
 
@@ -112,7 +117,7 @@
     transform: translateX(10px);
 }
 
-.Wrapper .Content {
+.Wrapper .homeContent {
     background-color: #303036;
     padding-left: 5%;
     margin-left: 0;
@@ -121,7 +126,7 @@
 
 }
 
-.Wrapper .Content>div {
+.Wrapper .homeContent>div {
     margin-top: 2%;
     margin-left: 2%;
     display: flex;
@@ -151,7 +156,7 @@
 
     font-size: 1.4rem;
     border-bottom: solid 2px #30BCED;
-    
+
 
 }
 
@@ -231,7 +236,7 @@
     flex-wrap: wrap;
     flex-shrink: 0;
     gap: 10px;
-    margin-right:5%;
+    margin-right: 5%;
     justify-content: center;
 }
 
@@ -384,19 +389,19 @@ button {
     font-size: 1rem;
     margin: auto;
     width: fit-content;
-    color:black;
+    color: black;
 }
 
-.Wrapper .PieChart .up{
-    background-color:rgb(173, 246, 173);
+.Wrapper .PieChart .up {
+    background-color: rgb(173, 246, 173);
     border-radius: 1rem;
-    padding:5px;
+    padding: 5px;
 }
 
-.Wrapper .PieChart .down{
-    background-color:#ffcccb;
+.Wrapper .PieChart .down {
+    background-color: #ffcccb;
     border-radius: 1rem;
-    padding:5px;
+    padding: 5px;
 }
 
 .Wrapper .financeInfoHeader {
@@ -411,77 +416,195 @@ button {
     -webkit-text-fill-color: transparent;
 }
 
-.Wrapper .financialInfo .FinanceInfo{
-  display:flex;
-  flex-direction: row;
-  overflow: visible;
+.Wrapper .financialInfo .FinanceInfo {
+    display: flex;
+    flex-direction: row;
+    overflow: visible;
 
 }
 
-.Wrapper .financialInfo .financialContent{
-    display:flex;
+.Wrapper .financialInfo .financialContent {
+    display: flex;
     flex-direction: column;
-    margin:auto;
+    margin: auto;
     row-gap: 1rem;
 }
 
-.Wrapper .financialContent div{
-    font-family:'roboto';
-    font-size:1.5rem;
+.Wrapper .financialContent div {
+    font-family: 'roboto';
+    font-size: 1.5rem;
 }
 
-.Wrapper .financialContent svg{
-    width:1.5rem;
-    height:1.5rem;
-    margin-right:0.5rem;
+.Wrapper .financialContent svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
 }
 
-.Wrapper .financialContent div .PieChart{
-    width:100%;
+.Wrapper .financialContent div .PieChart {
+    width: 100%;
 }
 
-.Wrapper .financialContent .PieChart h3{
-    font-size:1.5rem;
-  
+.Wrapper .financialContent .PieChart h3 {
+    font-size: 1.5rem;
+
 }
 
-.Wrapper .financialContent .PieChart{
+.Wrapper .financialContent .PieChart {
 
     height: fit-content;
 }
 
-.Wrapper .FinanceInfo{
+.Wrapper .FinanceInfo {
 
-    padding:2rem;
-    position:relative;
+    padding: 2rem;
+    position: relative;
 }
 
-.Wrapper .FinanceInfo button{
-    background:none;
-    border:none;
+.Wrapper .FinanceInfo button {
+    background: none;
+    border: none;
     overflow: auto;
 }
 
-.Wrapper .FinanceInfo .actionButtons{
-    position:absolute;
-   top:90%;
+.Wrapper .FinanceInfo .actionButtons {
+    position: absolute;
+    top: 90%;
 }
-.Wrapper .FinanceInfo .bi-trash,.Wrapper .FinanceInfo .bi-toggles2{
-    fill:white;
-    transition:0.25s;
-    width:1.5rem;
-    height:1.5rem;
+
+.Wrapper .FinanceInfo .bi-trash,
+.Wrapper .FinanceInfo .bi-toggles2 {
+    fill: white;
+    transition: 0.25s;
+    width: 1.5rem;
+    height: 1.5rem;
 
 }
 
-.Wrapper .FinanceInfo .bi-trash:hover{
-    fill:red;
+.Wrapper .FinanceInfo .bi-trash:hover {
+    fill: red;
 }
 
-.Wrapper .FinanceInfo .bi-toggles2:hover{
+.Wrapper .FinanceInfo .bi-toggles2:hover {
     fill: #30BCED;
 }
 
-.LineGraph{
-    width:90%;
+.Wrapper .LineGraph {
+    width: 100%;
+}
+
+.Wrapper .lineGraphBox .lineGraphContainer {
+    width: 95%;
+    height: fit-content;
+}
+
+.Wrapper .lineGraphBox {
+
+
+    border-radius: 42px;
+    background: #303036;
+    box-shadow: 6px 6px 12px #1d1d20,
+        -6px -6px 12px #43434c;
+    padding: 2%;
+    width: 90%;
+    height: fit-content;
+
+}
+
+.Wrapper .lineGraphBox .lineGraphContainer {
+    margin: auto;
+}
+
+.Wrapper .lineGraphContainer h2 {
+    width: fit-content;
+    margin: auto;
+    font-family: 'roboto';
+    font-size: xx-large;
+}
+
+.Wrapper .lineGraphContainer .visualized {
+    color: #30BCED;
+}
+
+.Wrapper .lineGraphContainer .yearSelector {
+    border: none;
+    border-bottom: solid;
+    border-color: #30BCED;
+    background: none;
+    margin-top: 0;
+    color: white;
+    padding: 0;
+    text-align: center;
+    font-size: xx-large;
+    font-family: 'roboto';
+
+}
+
+.Wrapper .loginform, .Wrapper .signupform {
+    width: fit-content;
+    margin: auto;
+    margin-top: 10%;
+    color: white;
+    font-family: 'roboto';
+    border-radius: 42px;
+    background: #303036;
+    box-shadow: 6px 6px 12px #1d1d20,
+        -6px -6px 12px #43434c;
+    padding: 5% 7% 9% 7%;
+
+}
+
+.Wrapper .loginform form, .Wrapper .signupform form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.Wrapper .loginform .formTitle, .Wrapper .signupform .formTitle {
+    font-size: xx-large;
+}
+
+.Wrapper .loginform .in, .Wrapper .signupform .up {
+    color: #30BCED;
+}
+
+.Wrapper .loginform label, .Wrapper .signupform label {
+    font-size: x-large;
+    font-weight: bold;
+    margin-bottom: 5%;
+}
+
+.Wrapper .loginform input, .Wrapper .signupform input {
+    border-radius: 5px;
+    padding: 2%;
+    font-family: 'roboto';
+    font-size: x-large;
+    border: none;
+    border-bottom: solid;
+    border-color: #30BCED;
+    background: none;
+    color: white;
+    margin-bottom: 5%;
+
+}
+
+.Wrapper .loginform .submitBtn, .Wrapper .signupform .submitBtn {
+    margin-top: 10%;
+    -webkit-box-shadow: 0px 0px 9px 0px rgba(48, 187, 237, 1);
+    -moz-box-shadow: 0px 0px 9px 0px rgba(48, 187, 237, 1);
+    box-shadow: 0px 0px 9px 0px rgba(48, 187, 237, 1);
+    background: none;
+    border: none;
+    padding: 2%;
+    border-radius: 5px;
+    color: white;
+    font-size: x-large;
+    font-family: 'roboto';
+    font-weight: bold;
+    transition:0.45s;
+}
+
+.Wrapper .loginform .submitBtn:hover, .Wrapper .signupform .submitBtn:hover{
+    color:#30BCED;
+    border:solid;
 }
