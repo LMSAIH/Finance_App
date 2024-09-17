@@ -81,51 +81,54 @@ export const Home = () => {
   };
 
   return (
-    <div>
-      <OverallFinanceInfo
-        totalOutcome={totalOutcome}
-        totalIncome={totalIncome}
-      />
-      <div className="createNew">
-        <div>
-          {isEdditting1 ? (
-            <div>
-              <CreateNewFinanceForm
-                createNewFinance={createNewFinance}
-                token={token}
-              />
-              <button onClick={disableNewIncome} className="closeCreateBtn">
-                Close
+    <div className="homeContent">
+      <div>
+        <OverallFinanceInfo
+          totalOutcome={totalOutcome}
+          totalIncome={totalIncome}
+        />
+        <div className="createNew">
+          <div>
+            {isEdditting1 ? (
+              <div>
+                <CreateNewFinanceForm
+                  createNewFinance={createNewFinance}
+                  token={token}
+                />
+                <button onClick={disableNewIncome} className="closeCreateBtn">
+                  Close
+                </button>
+              </div>
+            ) : (
+              <button className="openCreateBtn" onClick={createNewIncome}>
+                Create finance object for a month and a year
               </button>
-            </div>
+            )}
+          </div>
+        </div>
+        <div className="filter">
+          <SelectIFilterForm setFilter={setFilter} />
+        </div>
+
+        <h3 className="financeInfoHeader"> Your financial plans </h3>
+        <div className="financialInfo">
+          {finData ? (
+            finData.map((e) => (
+              <FinanceInfo
+                financeData={e}
+                deleteFinance={deleteFinance}
+                token={token}
+                key={e._id}
+              />
+            ))
           ) : (
-            <button className="openCreateBtn" onClick={createNewIncome}>
-              Create finance object for a month and a year
-            </button>
+            <div>It is empty down here, start planning your finances!</div>
           )}
         </div>
+        <div className="lineGraphBox">
+          <LineGraphContainer financesData={financesData} />
+        </div>
       </div>
-      <div className="filter">
-        <SelectIFilterForm setFilter={setFilter} />
-      </div>
-
-      <h3 className = "financeInfoHeader"> Your financial plans </h3>
-      <div className="financialInfo">
-      
-        {finData ? (
-          finData.map((e) => (
-            <FinanceInfo
-              financeData={e}
-              deleteFinance={deleteFinance}
-              token={token}
-              key={e._id}
-            />
-          ))
-        ) : (
-          <div>It is empty here, start planning your finances!</div>
-        )}        
-      </div>
-      <LineGraphContainer financesData={financesData}/>
     </div>
   );
 };
