@@ -107,7 +107,7 @@ body{
 .wrapper .container h2 {
     font-family: "roboto";
     font-weight:bold;
-    font-size: 55px;
+    font-size: 3rem;
     color: white;
     margin-bottom: 30%;
     margin-top: 2em;
@@ -173,4 +173,12 @@ body{
     border-color: rgba(153, 102, 255, 1);
 }
 
+.wrapper .container .discover{
+    color:#30bced;
+  
+}
+
+.wrapper .container .you{
+    color:#39B78B;
+}
 
