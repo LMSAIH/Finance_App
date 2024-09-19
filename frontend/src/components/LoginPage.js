@@ -40,7 +40,7 @@ const LoginPage = () => {
                 <label>Password </label>
                 <input type = "password" onChange={(e)=>{setPassword(e.target.value)}} name="password" value={password}></input> 
                 <button disabled = {isLoading} className = "submitBtn"> Log In! </button>
-                <div className = "error"> {error} </div>
+                {error && <div className = "error"> {error} </div>}
             </form>
         </div>
       );
