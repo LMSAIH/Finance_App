@@ -555,6 +555,19 @@ button {
 
 }
 
+.Wrapper .loginform .error, .Wrapper .signupform .error{
+    margin:auto;
+    margin-top:3rem;
+    font-family:'roboto';
+    color:black;
+    max-width:250px;
+    background-color: lightcoral;
+    border: solid rgb(237, 44, 44);
+    padding:5%;
+margin-bottom: 0;
+    border-radius: 1rem;
+}
+
 .Wrapper .loginform form, .Wrapper .signupform form {
     display: flex;
     flex-direction: column;
