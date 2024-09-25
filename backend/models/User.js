@@ -21,6 +21,7 @@ const UserSchema = new Schema({
 UserSchema.statics.signup = async function (email, password) {
 
     //Check in case there is no mail or password
+    //Throw an error if so
   if (!email || !password) {
     throw Error("Missing fields");
   }
