@@ -45,7 +45,7 @@ const LandingPageGraph = () => {
   const [features, setFeatures] = useState(20);
 
   useEffect(() => {
-    // Sample data
+    // Sample data for the landing page
     setChartData({
       labels: ["Investments", "Savings", "401K", "Crypto", "Features"],
       datasets: [
