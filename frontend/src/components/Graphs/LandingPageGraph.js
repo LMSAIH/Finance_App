@@ -36,6 +36,7 @@ const options = {
   },
 };
 
+//This will display the component
 const LandingPageGraph = () => {
   const [chartData, setChartData] = useState(null);
   const [investments, setInvestments] = useState(10);
