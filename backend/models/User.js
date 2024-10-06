@@ -38,7 +38,7 @@ UserSchema.statics.signup = async function (email, password) {
     );
   }
 
-  //Check if the email exists
+  //Check if the email exists in the DB
   const exists = await this.findOne({email});
 
   //If it does exist, throw error
