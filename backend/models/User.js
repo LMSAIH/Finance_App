@@ -61,14 +61,17 @@ UserSchema.statics.signup = async function (email, password) {
 }
 
 //Static function that exists inside the userschema and can be called to validate, if everythig is valid, return the user
+//This is a static method for withing the user on the db
 UserSchema.statics.login = async function(email,password){
 
+  //If the fields are not filled
     if(!email || !password){
         throw Error("Missing fields");
     }
     //Find a match inside this context with the email
     const user = await this.findOne({email});
 
+    //If there is no user after trying ot fetch it
     if(!user){
         throw Error("No user exists");
     }
