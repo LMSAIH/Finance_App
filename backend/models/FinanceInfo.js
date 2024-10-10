@@ -41,5 +41,5 @@ FinanceInfoSchema.path('outcome').validate(function(value) {
 
 
 
-//export the module, it adds s automatically
+//export the module, it adds s automatically onto finances
 module.exports = mongoose.model('finance', FinanceInfoSchema);
