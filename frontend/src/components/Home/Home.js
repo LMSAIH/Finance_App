@@ -14,6 +14,7 @@ import { LineGraphContainer } from "./LineGraphContainer";
 // import { AmountOutcomesEdditingForm } from './AmountOutcomesEdditingForm';
 // import { OutcomesForm } from './OutcomesForm';
 
+//Home function dnt
 export const Home = () => {
   const [isEdditting1, setIsEdditing1] = useState(false);
   const [filter, setFilter] = useState({ month: "january", year: 2024 });
