@@ -20,12 +20,12 @@ export const Home = () => {
   const [filter, setFilter] = useState({ month: "january", year: 2024 });
   const [finData, setFinData] = useState(null);
   const [totalOutcome, setTotalOutcome] = useState(0);
-  const [totalIncome, setTotalIncome] = useState(0);
-
+  const [totalIncome, setTotalIncome] = useState(0); 
   const dispatch = useDispatch();
 
   let financesData = useSelector(getFinancesData);
 
+  //user context for authorization request
   const { user } = useAuthContext();
 
   const token = user.token;
