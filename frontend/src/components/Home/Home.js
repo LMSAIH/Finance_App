@@ -43,6 +43,7 @@ export const Home = () => {
     dispatch(deleteFinanceTC(id, token));
   };
 
+  //effect to get the financial info
   useEffect(() => {
     getFinances(token);
   }, [dispatch]);
