@@ -30,6 +30,7 @@ export const Home = () => {
 
   const token = user.token;
 
+  //get finances from the redux
   const getFinances = (token) => {
     dispatch(getFinancesTC(token));
   };
