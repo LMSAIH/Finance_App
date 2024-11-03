@@ -39,6 +39,7 @@ export const Home = () => {
     dispatch(createNewFinanceTC(year, month, income, outcomes, token));
   };
 
+  //delete finance
   const deleteFinance = (id, token) => {
     dispatch(deleteFinanceTC(id, token));
   };
