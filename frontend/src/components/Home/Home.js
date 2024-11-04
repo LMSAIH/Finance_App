@@ -49,6 +49,7 @@ export const Home = () => {
     getFinances(token);
   }, [dispatch]);
 
+  //effect to get all the financial information from the user
   useEffect(() => {
     let newFinanceData;
     let finalOutcome = 0;
