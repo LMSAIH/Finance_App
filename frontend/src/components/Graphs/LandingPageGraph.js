@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend, Filler);
 
+//Don't change the options 
 const options = {
   plugins: {
     legends: {
