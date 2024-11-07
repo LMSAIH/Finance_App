@@ -16,6 +16,7 @@ Router.delete("/:id", FinanceController.deleteOne);
 //Post the finance information for an specific month
 Router.post("/", FinanceController.postOne);
 
+//update the finance with patch (not put)
 Router.patch("/:id", FinanceController.updateOne);
 
 module.exports = Router;
