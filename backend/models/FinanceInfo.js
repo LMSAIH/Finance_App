@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-//creates the finance schema
+//creates the finance schema for the data stored on the db
 const FinanceInfoSchema = new Schema ({
 
     year:{
