@@ -1,4 +1,5 @@
 import { PolarArea } from "react-chartjs-2";
+//elements for polar area
 import {
   Chart as ChartJS,
   RadialLinearScale,
