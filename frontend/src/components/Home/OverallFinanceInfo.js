@@ -1,5 +1,6 @@
 import PieChart from "../Graphs/PieGraph"
 
+//Overall finance information summary element
 export const OverallFinanceInfo = (props) => {
     
     return (<div className = "thisMonth">
