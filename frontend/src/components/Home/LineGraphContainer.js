@@ -7,13 +7,7 @@ export const LineGraphContainer = (props) => {
 
     const [filteredData, setFilteredData] = useState(null);
 
-
-
-
-
-
-
-
+    //updated the effects
     useEffect(() => {
 
         // const filterByMonth = (data) => {
