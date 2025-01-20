@@ -32,7 +32,7 @@ const LandingPage = () => {
             <span className="you"> you</span>.
           </h2>
           <h1>Welcome to Finance App.</h1>
-          <h3>Your path for success.</h3>
+          <h3 className="landingDescription">Your path for financial freedom.</h3>
         </div>
 
         <div className="container2">
